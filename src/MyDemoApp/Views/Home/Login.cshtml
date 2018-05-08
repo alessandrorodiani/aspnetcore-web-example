@@ -1,0 +1,27 @@
+﻿@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<form asp-controller="Home" asp-action="Login">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" placeholder="Email" asp-for="EmailAddress">
+        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" placeholder="Password" asp-for="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert" style="margin-top: 40px">
+        @ViewData["ErrorMessage"]
+    </div>
+}
